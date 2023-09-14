@@ -1,8 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a><img src="https://pbs.twimg.com/media/F57l7h8XIAA6udp?format=jpg&name=large" alt="Page" width="200"></a>
-  <br>
+  <a></a>
   Project Marketplace
   <br>
 </h1>
@@ -19,7 +18,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+![screenshot](https://pbs.twimg.com/media/F57l7h8XIAA6udp?format=jpg&name=large)
 
 ## How To Use
 
