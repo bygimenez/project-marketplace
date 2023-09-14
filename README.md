@@ -26,7 +26,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [P
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/bygimenez/project-marketplace
+$ git clone https://github.com/bygimenez/project-marketplace.git
 
 # Go into the repository
 $ cd project-marketplace
