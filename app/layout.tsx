@@ -5,6 +5,7 @@ import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
 	title: {
@@ -37,12 +38,9 @@ export default function RootLayout({
 					fontSans.variable
 				)}
 			>
+				<Navbar />
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="relative flex flex-col h-screen">
-						<main className="container mx-auto  pt-16 px-6 flex-grow">
 							{children}
-						</main>
-					</div>
 				</Providers>
 			</body>
 		</html>
