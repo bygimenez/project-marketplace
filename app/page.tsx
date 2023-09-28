@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 
 export default function Start() {
@@ -9,7 +8,7 @@ export default function Start() {
             <h1 className="md:text-4xl  text-xl mt-8 text-purple-500">Offer the  <span className="underline underline-offset-4 text-white decoration-3">unimaginable</span> to the world</h1>
             <audio className="md:text-4xl text-3xl mt-10 text-zinc-600 " src="https://xxmxfzfudzisheaosehn.supabase.co/storage/v1/object/public/audio/main2.mp3?t=2023-09-12T11%3A24%3A49.478Z" controls autoPlay/>
             <Link href="/home" color="foreground">
-              <Button className="mt-8 bg-purple-800 text-white text-semibold shadow-xl shadow-purple-900/40"  color="secondary">Continue</Button>
+              <button className="mt-8 bg-purple-800 text-white text-semibold shadow-xl shadow-purple-900/40"  color="secondary">Continue</button>
             </Link>
           </div>	
       </section>
