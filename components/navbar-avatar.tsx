@@ -15,15 +15,21 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function NavbarAvatar({
+  id,
+  user_name,
   avatar_url,
+  user_role
 }: {
+  id: string;
   avatar_url: string;
+  user_name: string;
+  user_role: string;
 }) {
   const supabase = createClientComponentClient();
   const router = useRouter();
 
   const handleProfileClick = () => {
-    window.location.href = `/home`;
+    window.location.href = `/users/${user_name}`;
   };
 
   const handleProfileClick1 = () => {
@@ -64,17 +70,33 @@ export default function NavbarAvatar({
     </DropdownItem>,
   ];
 
+  if (user_role === "admin") {
+    dropdownItems.push(
+      <DropdownItem key="admin" onClick={handleAdminDashboardClick} startContent={<IconShield className={iconClasses}/>}>
+        Admin Dashboard
+      </DropdownItem>
+    );
+  }
 
   return (
     <div className="flex items-center">
       <Dropdown>
         <DropdownTrigger>
+        <Chip
+        style={{
+        cursor: 'pointer'
+        }}
+        variant="flat"
+        size="lg"
+        avatar={
           <Avatar
-            isBordered
-            color="secondary"
             name="JW"
             src={avatar_url}
           />
+        }
+      >
+        {user_name}
+      </Chip>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">
           {dropdownItems}

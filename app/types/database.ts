@@ -44,6 +44,7 @@ export interface Database {
           id: string
           name: string
           user_name: string
+          user_role: string
         }
         Insert: {
           avatar_url: string
@@ -51,6 +52,7 @@ export interface Database {
           id: string
           name: string
           user_name: string
+          user_role?: string
         }
         Update: {
           avatar_url?: string
@@ -58,6 +60,7 @@ export interface Database {
           id?: string
           name?: string
           user_name?: string
+          user_role?: string
         }
         Relationships: [
           {
