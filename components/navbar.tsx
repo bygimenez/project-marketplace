@@ -20,7 +20,7 @@ import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
 import NavbarAvatar from "./navbar-avatar";
 
-export async function Navbar() {
+export default async function Navbar() {
   const  supabase = createServerComponentClient<Database>({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
   const userId = session?.user?.id;
@@ -106,3 +106,4 @@ function setUser(arg0: {
 }) {
   throw new Error("Function not implemented.");
 }
+export const dynamic = 'force-dynamic'

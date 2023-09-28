@@ -8,3 +8,4 @@ export async function AuthButtonServer () {
 
   return <AuthButton session={session} />
 }
+export const dynamic = 'force-dynamic'
