@@ -16,20 +16,20 @@ import { useRouter } from "next/navigation";
 
 export default function NavbarAvatar({
   id,
-  user_name,
+  userFullName,
   avatar_url,
-  user_role
+  userRole,
 }: {
   id: string;
   avatar_url: string;
-  user_name: string;
-  user_role: string;
+  userFullName: string;
+  userRole: string;
 }) {
   const supabase = createClientComponentClient();
   const router = useRouter();
 
   const handleProfileClick = () => {
-    window.location.href = `/users/${user_name}`;
+    window.location.href = `/users/${userFullName}`;
   };
 
   const handleProfileClick1 = () => {
@@ -70,7 +70,7 @@ export default function NavbarAvatar({
     </DropdownItem>,
   ];
 
-  if (user_role === "admin") {
+  if (userRole === "admin") {
     dropdownItems.push(
       <DropdownItem key="admin" onClick={handleAdminDashboardClick} startContent={<IconShield className={iconClasses}/>}>
         Admin Dashboard
@@ -95,7 +95,7 @@ export default function NavbarAvatar({
           />
         }
       >
-        {user_name}
+        {userFullName}
       </Chip>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">

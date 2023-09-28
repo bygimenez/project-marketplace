@@ -7,6 +7,7 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 
@@ -22,11 +23,9 @@ import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
 import NavbarAvatar from "./navbar-avatar";
 
-export async function Navbar() {
-  const supabase = createServerComponentClient<Database>({ cookies });
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+export default async function Navbar() {
+  const supabase = createServerComponentClient<Database>({ cookies })
+  const { data: { session } } = await supabase.auth.getSession()
   const userId = session?.user?.id;
   let avatar_url = "";
   let user_name = "";
@@ -81,8 +80,8 @@ export async function Navbar() {
             <NavbarAvatar
               avatar_url={avatar_url}
               id={userId}
-              user_name={user_name}
-              user_role={user_role}
+              userFullName={user_name}
+              userRole={user_role}
             />
           )}
           <AuthButtonServer />
@@ -92,29 +91,6 @@ export async function Navbar() {
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         <NavbarMenuToggle />
       </NavbarContent>
-
-      <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                    ? "foreground"
-                    : "foreground"
-                }
-                href="#"
-                size="lg"
-              >
-                {item.label}
-              </Link>
-              
-            </NavbarMenuItem>
-          ))}
-        </div>
-      </NavbarMenu>
     </NextUINavbar>
   );
 }
@@ -128,7 +104,7 @@ function getUsers(): { data: any } | PromiseLike<{ data: any }> {
 
 function setUser(arg0: {
   avatar_url: string;
-  user_name: string | null;
+  full_name: string | null;
   id: string;
 }) {
   throw new Error("Function not implemented.");
